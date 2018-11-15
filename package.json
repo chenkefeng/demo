@@ -1,7 +1,7 @@
 {
   "name": "demo",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "demo",
   "main": "dist/index.js",
   "types": "./@types/index.d.ts",

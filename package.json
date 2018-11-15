@@ -32,7 +32,7 @@
     "type": "git",
     "url": "https://github.com/chenkefeng/demo.git"
   },
-  "author": "",
+  "author": "chenkfjava",
   "license": "MIT",
   "dependencies": {
     "@tarojs/components": "^1.1.7",

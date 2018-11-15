@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "description": "demo",
+  "main": "dist/index.js",
+  "types": "./@types/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
@@ -13,7 +18,18 @@
     "dev:swan": "npm run build:swan -- --watch",
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:h5": "npm run build:h5 -- --watch",
-    "dev:rn": "npm run build:rn -- --watch"
+    "dev:rn": "npm run build:rn -- --watch",
+    "lint": "eslint ./src --fix"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx}": [
+      "eslint --quiet --cache --fix",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenkefeng/demo.git"
   },
   "author": "",
   "license": "MIT",

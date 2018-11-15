@@ -1,16 +1,22 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import './index.less'
 
-export default class Index extends Component {
+import SDBody from '../../comps/sd-body'
 
-  /**
-   * 指定config的类型声明为: Taro.Config
-   *
-   * 由于 typescript 对于 object 类型推导只能推出 Key 的基本类型
-   * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
-   * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
-   */
+type IState = {
+  loading: boolean
+}
+
+export default class Index extends Component<{}, IState> {
+
+  constructor() {
+    super();
+    this.state = {
+      loading: true
+    }
+  }
+
   config: Config = {
     navigationBarTitleText: '首页'
   }
@@ -26,10 +32,15 @@ export default class Index extends Component {
   componentDidHide () { }
 
   render () {
+    setTimeout(() => {
+      this.setState({
+        loading: false
+      })
+    }, 3000)
     return (
-      <View className='index'>
-        <Text>Hello world!</Text>
-      </View>
+      <SDBody loading={this.state.loading}>
+        <View>测试内容</View>
+      </SDBody>
     )
   }
 }
